@@ -1,0 +1,118 @@
+.index-book {
+    background-image: url(book-card-index.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 33%;
+    height: 150px;
+}
+
+@media (max-width: 992px) {
+    .index-book {
+        background-position: top;
+        width: 100%;
+        height: 500px;
+    }
+}
+
+.index-author {
+    background-image: url(author-card-index.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 33%;
+    height: 150px;
+}
+
+@media (max-width: 992px) {
+    .index-author {
+        background-position: top;
+        width: 100%;
+        height: 500px;
+    }
+}
+
+.index-editorial {
+    background-image: url(editorial-card-index.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 33%;
+    height: 150px;
+}
+
+@media (max-width: 992px) {
+    .index-editorial {
+        background-position: top;
+        width: 100%;
+        height: 500px;
+    }
+}
+
+.index-client {
+    background-image: url(client-card-index.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 33%;
+    height: 150px;
+}
+
+@media (max-width: 992px) {
+    .index-client {
+        background-position: top;
+        width: 100%;
+        height: 500px;
+    }
+}
+
+.index-loan {
+    background-image: url(loan-card-index.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 33%;
+    height: 150px;
+}
+
+@media (max-width: 992px) {
+    .index-loan {
+        background-position: top;
+        width: 100%;
+        height: 500px;
+    }
+}
+
+.clickable-card {
+    transition: all .6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.clickable-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .15);
+}
+
+@media (max-width: 992px) {
+    .clickable-card:hover {
+        transform: scale(1.03);
+    }
+}
+
+.clickable-card > a {
+    color: black;
+}
+
+.footer-link {
+    filter: grayscale(1);
+    transition: .5s;
+}
+
+.footer-link:hover {
+    filter: grayscale(0);
+    transform: scale(1.15);
+}
+
+.main {
+    margin-bottom: 4.5rem !important;
+}
+
