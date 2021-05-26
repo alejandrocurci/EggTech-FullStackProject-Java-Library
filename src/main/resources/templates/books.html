@@ -125,6 +125,8 @@
                             <td class="col-md-4 px-md-2" th:text="${book.year}"></td>
                             <td class="col-md-4 px-md-2" th:text="${book.totalCopies}"></td>
                             <td class="col-md-4 px-md-2" th:text="${book.givenCopies}"></td>
+                            <td class="col-md-4 px-md-2" th:text="${book.author.name}"></td>
+                            <td class="col-md-4 px-md-2" th:text="${book.editorial.name}"></td>
                             <td class="col-md-4 px-md-2 d-flex justify-content-around w-100">
                                 <a class="btn btn-secondary btn-sm" th:href="@{/books/update/__${book.isbn}__}">Update</a>
                                 <form th:action="@{/books/delete/__${book.isbn}__}" method="post">

@@ -49,6 +49,13 @@ public class BookService {
     }
 
     @Transactional
+    public List<Book> findAllAvailable() {
+        List<Book> books = bookRepository.findAll();
+        books.removeIf(b -> b.getGivenCopies()==b.getTotalCopies());
+        return books;
+    }
+
+    @Transactional
     public void modify(Long isbn, String title, int year, int totalCopies, 
             Long idAuthor, Long idEditorial) {
         Book book = bookRepository.findById(isbn).orElse(null);

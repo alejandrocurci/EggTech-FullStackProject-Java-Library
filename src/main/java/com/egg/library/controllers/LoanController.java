@@ -35,7 +35,7 @@ public class LoanController {
         ModelAndView mav = new ModelAndView("loan-form");
         mav.addObject("loan", new Loan());
         mav.addObject("clients", clientService.findAll());
-        mav.addObject("books", bookService.findAll());
+        mav.addObject("books", bookService.findAllAvailable());
         mav.addObject("title", "Create Loan");
         mav.addObject("action", "save");
         return mav;

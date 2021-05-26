@@ -1,5 +1,6 @@
 package com.egg.library.services;
 
+import com.egg.library.models.Book;
 import com.egg.library.models.Loan;
 import com.egg.library.repositories.BookRepository;
 import com.egg.library.repositories.ClientRepository;
@@ -14,6 +15,8 @@ import java.util.List;
 @Service
 public class LoanService {
 
+    // TODO add calendar input to dates in templates (instead of plain text)
+
     @Autowired
     private LoanRepository loanRepository;
     @Autowired
@@ -24,7 +27,9 @@ public class LoanService {
     @Transactional
     public void createLoan(Long idClient, Long idBook) {
         Loan loan = new Loan();
-        loan.setBook(bookRepository.findById(idBook).orElse(null));
+        Book book = bookRepository.findById(idBook).orElse(null);
+        book.setGivenCopies(book.getGivenCopies() + 1);
+        loan.setBook(book);
         loan.setClient(clientRepository.findById(idClient).orElse(null));
         Calendar fromDate = Calendar.getInstance();
         loan.setStartDate(fromDate);
@@ -32,6 +37,7 @@ public class LoanService {
         toDate.add(Calendar.DATE, 7);
         loan.setReturnDate(toDate);
         loanRepository.save(loan);
+        bookRepository.save(book);
     }
 
     @Transactional(readOnly = true)
