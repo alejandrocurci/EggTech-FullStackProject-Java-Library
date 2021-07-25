@@ -39,10 +39,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .formLogin()
                 .loginPage("/login")
-                .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/")
+                .loginProcessingUrl("/logincheck")
+                .usernameParameter("username")
+                .passwordParameter("password")
+                .defaultSuccessUrl("/", true)
                 .permitAll()
-                // TODO FIX BUG - After first login, it redirects to "http://localhost:8080/style.css"
 
                 .and()
 
@@ -53,30 +54,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .and()
                 .csrf().disable();
-
-        /*
-                http
-                .authorizeRequests()
-                    .antMatchers("/css/*", "/", "/registro", "/registrar").permitAll()
-                    .antMatchers("/**").authenticated()
-                .and()
-                .formLogin()
-                    .loginPage("/login")
-                        .loginProcessingUrl("/logincheck")
-                        .usernameParameter("email")
-                        .passwordParameter("password")
-                        .defaultSuccessUrl("/home")
-                        .permitAll()
-                .and()
-                    .logout()
-                        .logoutUrl("/logout")
-                        .logoutSuccessUrl("/login?logout")
-                        .permitAll()
-                        .deleteCookies("JSESSIONID")
-                .and()
-                    .csrf().disable();
-
-            */
 
     }
 }
